@@ -1,5 +1,5 @@
 function getCards() {
-    return Math.floor(Math.random ()*12)
+    return Math.floor(Math.random ()*12);
 }
 
 function startGame() {
@@ -11,15 +11,29 @@ function startGame() {
     let playerCards2 = getCards();
     let playerTotal = playerCards1 + playerCards2;
 
-    console.log("you have a total of" + dealerCardsTotal)
+    console.log("Dealer's first card is" + dealerCards1)
     console.log('Your total: ${playerTotal}')
     while(playerTotal < 21) {
-        let question = prompt('hit or stand???')
-        if(question = 'hit') {
-            playerTotal = playerTotal + getCards();
+        let action = prompt('hit or stand???')
+        if(action == 'hit') {
+            let newCard = getCards();
+            playerTotal = playerTotal + newCard();
+            console.log('u drew' + newCard + 'ur total is' + playerTotal)
+        } 
+        else if(action = 'stand') {
+            console.log('u have decided to stand');
+            break;
+        }
+        else {
+            console.log("Invalid response; type 'hit' or 'stand'");
         }
     }
-
+    if (playerTotal > 21) {
+        console.log('U lost! Muahahahahahahahshjnvfndovjkfncrjkd')
+    }
+    else {
+        console.log(dealerCardsTotal);
+    }
     
 }
 
